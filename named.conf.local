@@ -6,12 +6,16 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+include "/etc/bind/ddns.key";
+
 zone "iescalquera.local" {
 	type master;
 	file "db.iescalquera.local";
+	allow-update {key CHAVE-DDNS;};
 };
 
 zone "5.16.172.in-addr.arpa" {
 	type master;
 	file "db.172.16.5";
+	allow-update {key CHAVE-DDNS;};
 };
